@@ -1,0 +1,521 @@
+
+Strengthen AI operational maturity across Factory environments specifically through Data Modeling and Data Engineering using Gen AI Integration.
+
+Contribute to Gen AI Integration projects like 
+1. FABPT for EQP analytics or any relating for users to Preventative Maintenance provisioning different cuts of equipment data from both factories with emphasis on Preventative Maintenance data on Tools frequency of such activities for fiscal periods or cuts of data as may provide useful insights into Equipment Trends.
+2. Research and Publish standard data sources for EQP Analytics and make these data sources available for FABGPT.
+3. Utilize GenAI to streamline data engineering work in terms of development/testing and deployments. 
+
+
+Enable integration and scaling of factory systems for HAMR volume ramp
+
+1. Enabling clear visibility for the business on any HAMR related data.
+   1.1 This may include standard day to day reports.
+   1.2 Adhoc reports with raw data.
+   1.3 Setting up of standard reports.
+2. Help with creation of Tableau reports or power BI and standardize these report sources where possible.
+3. Leverage GenAI like FABGPT to find reports or use it to provide more intuitive informative and efficiency.
+
+
+"Live our Values" is how we deliver results - and how we identify those who go above and beyond. 
+
+Integrity
+I consistently demonstrated integrity by taking ownership of complex issues and ensuring clear communication with my team. For example, when discrepancies arose in the migration scripts between Oracle and PostgreSQL, I took the initiative to investigate the root cause, even when it required extensive debugging and collaboration with the cloud team. I also documented schema changes and shared them with the team to ensure transparency and alignment. Despite challenges in explaining technical problems, I worked to improve my communication by presenting evidence through charts and Excel sheets, which helped clarify issues and drive solutions. My efforts contributed to resolving critical discrepancies and improving script performance, ensuring the migration project stayed on track.
+
+Innovation
+I embraced innovation by seeking creative solutions to technical challenges and leveraging tools like GENAI to optimize script performance. For instance, I tested and implemented enhancements to discrepancy detection scripts, including numeric filters and visualizations, which streamlined the identification of issues in WIP analytics. I also proposed separating jobs to improve error detection and data validation, demonstrating agility in adapting processes for better outcomes. Additionally, I proactively developed factory data extraction scripts using PySpark to expedite testing, showcasing my ability to deliver value through discovery and resourcefulness. These actions improved data accuracy and performance, directly supporting the migration project’s success.
+
+Inclusion
+I fostered inclusion by collaborating across teams and mentoring others. For example, I guided an intern by providing clear instructions and resources, ensuring they could contribute effectively to the project. I also worked closely with colleagues like Panch, Shashi, and Tenzin, leveraging their expertise in business logic, technical skills, and reporting to address challenges collaboratively. When issues arose with tools like Tableau and Kafka, I sought input from team members and external support groups, ensuring diverse perspectives were considered in problem-solving. My efforts to build trust and communicate effectively helped create a culture of shared success and respect within the team. 
+
+Integrity - We lead by example with an equal commitment to people, our planet, and prosperity. 
+
+In some cases there are still some miscommunication between teams with different time zone as others might already working on it with the issue as humans we tend to still need people to respond only then we know they are doing it.
+There are times when all of us might overlook the email or chat and didnt respond to the email or have some fear in us when checking the complexity of the issue and had to evaluate whether it can be done or not before we make that attempt to do it and every time when having the confidence in doing it others also respond to it. That already waste some efforts in looking at it.
+For me, I always have this difficulty to explain it to the team or with others about the problem. Even when I write it in excel sheet or in point form just recently to explain it in more concise way about the problem faced that needs the attention, I always feel they cannot understand what I'm trying to convey.
+They are also times they understand what is done but that is only when I say I already provide the solution to that issue. Just take the future_actions issue, actually I can just try to immediately try to fix the data to make it similar to ods by updating or insert the old data first like how some of my discrepancy fix related to tbl_prod_matrix_dim because there's a few case where when I do that the discrepancy went away without changing the script and then running every script to detect difference if that still doesnt work. 
+This time I decide to do differently as if I change some script after debugging but then I would have miss the purpose of understanding why others write it this way. 
+After bringing up to the team, they say dont change anything before we can understand the issue of it become null. After like investigate it like nearly the whole day that the wip route changes it to null in oracle. I never once thought the update can act differently in postgres and oracle. 
+Originally, all script is written very similarly like in oracle to prevent issue but because of some performance issue in postgres, I of course like everyone seek advice from GENAI to improve the script performance and switch it like it and use the script and seen the performance improve and then ever since that time I use the format written in postgres and make nearly all the change in the sql including the pkg_lot_transaction. 
+Maybe because of that we start seeing issue now. Then after the modifications by Shashi, Tenzin ask me to learn from him how to modify the script. He constantly wanted to know the update on the fix and I had to keep explain the issues face and I was looking at it. Truth be told, I believe Tenzin is under pressure as well from the management thats why there's all the deadline thing and this can affect their performance review and because of that he also hurry me to get the result.
+I'm not sure what that implies if that is the case might as well dont brought it up but just fix it. I dont denied I had a lot to learn from Shashi with the way he explain things and he seems to better in doing this explanations and approaching people for help. He also knows better about airflow and dataframe technical skills.
+I guess he must be under pressure as he also talks of our performance depends on the migration and if we cant deploy it to production.
+
+At first we write it like the way is determine like the previous team standard practices after discussion with data group like schema dars_owner _nrm/_stst for kafka migration tbl, oracle extensions for faster conversion in VM postgres. 
+I already write the document about that and I share it with the team. I admit I also plan already initially writing all those basic functionality like tbl_logs related with email, pkg_process_admin, pkg_partition_mgr, dynamic functions, null first, etc and already translated quite a lot script without first discussing with the team. 
+I gather all the list of script and jobs which I believe I can translate it fast together in edb postgres script just in case company decide to use it as its having a lot of similarity like oracle and then remove all the unuse columns as I test them. 
+I even had to write all the base table factory data using pyspark to pull data from the factory to test my script as I find it hard to wait for the cloud team to do it for me as they had other priorities at that time and most of the time very hard to get them do it immediately.
+That time there wasnt any GENAI to help with work so it's a really hard work.
+Then suddenly when Shashi and Tenzin come in to work with the data migration,  we are still doing using the scripts with all the extensions we need like email, pg_cron extension for postgres. After moving it to AWS, the extension need to reinstall again and I had to ask the cloud team to get it to the aws and and had to keep asking them and it take some time waiting for it. 
+As I feel I cannot wait already so I do some research on the extensions and discuss with the cloud team and try to get it inside AWS. Finally they install it in AWS with the schema oracle extension need to switch slightly to fix the script. 
+Then Tenzin suddenly suggest switching all script without oracle extensions and schema name as he doest feel sticking with vanilla postgres will be tedious in the beginning, but it will be better in the future for code readibility and maintenance/understading.
+At first I dont agree with that as modifying that would cause a lot of rework with testing of data and plus considering email still cant be done through AWS directly together with company policy prefering to use open source after some research. At the end I obey as the boss after some discussions with him after he encourage me to do it.
+Of course I got brought it up to Anshuman team and they will find some way to do it and I start to feel we cannot do it with postgres and thought of using something intermediatery like python script to do email and even thought of using iceberg as I feel its better using this for better performance.
+There's discussions with team but at the end we stick with postgres. 
+
+When I recall all past experience somehow I feel God is trying to mould me to be more patient instead of always want to do more and finish fast and maybe need to start being more honest in sharing the burdens with others instead of trying to fix evrything on my own.
+
+Innovation - We deliver value for our customers through discovery, agility, and solutions.
+
+Testing Development:
+Shashi had written just recently a script to compare the discrepancy in wip analytics. They ask me to test it out to identify the discrepancy. 
+Then he improve it to filter (postgre_num >= ods_num * 0.2) and (postgre_num <= ods_num * 1.8) for  numerics. Some enhancement further made using xlsx to highlight the discrepancy, red font is for more serious discrepancy
+and then chart to show top 20 and additional xlsx to show only red and more than 2.5 hours for datetime char. I also ask intern to help out with the development and identify the discrepancy and performance issue in wip analytics for pkg_hist_metrics.cum_lnr_wfl_yld after found it is needed.
+
+I try to learn the good methods from others but somehow still fall short because of my bad habits of just immediately to try to solve it out instead of plan and think to what to write and talk. I also try to adopt my manager's way of trying to presenting it using excel sheet and following others by writing in point form for more understanding and clarity, but it seems still better to just show the evidence in excel than trying to explain and going nowhere.
+I found even after presenting it in point form, Tenzin seems not to be able to understand the problems only when showing charts with less discrepancy percentage and from way Shashi show the evidence from airflow data only then did he seems to get it.
+Or when Panch also pulling some data from the factory while presenting why it's not matching then only he accepts it. 
+
+I just pick up from pkg_lot_transaction idea of fixing this.
+For further improvement, need to separate the job for script to a new server to check if there's no new data coming in for some time and validate missing data and insert the missing entity to a newly created table and then the existing job just take the missing entity together with any existing entity and update them on entity. 
+Right now all is running in one job. If the existing job fail we wont even know there's error and then when found out need to backfill them.
+
+
+Inclusion - We advance workplace equity and inclusion to foster a culture of respect, safety, and shared success.
+
+Observable Actions to Demonstrate the Values:
+
+If got any issue with IAS Support Group, right now can only provide more details about the problem 
+For Slider AMKPIV data for SVTT, manage to resolve any problems related to it either through backfill data or fixing the script with some improvement made including performance to pull between range of time. Need to change any changes in kafka subscription. 
+For Tableau, need to ask Ramesh for help as sometimes the job is not refresh and after Helen complain only then had look into it and resolve it and after he create a new job and then if need to need to fix the report from web, we cant just directly publish them to overwrite it otherwise the job wont do refresh and after some monitoring. It needs to first download it down to desktop and then refresh the whole data and then republish it.
+For FABGBT, had to test the usage of it and then write down the list of issues found and provide feedback to it- Had to do checking based on formulas provided, results it provides not up to expectations and wait for them to they fix it, had to recheck again until you are satisy.
+Task as mentor with Panch to guide the intern together. 
+The intern are quite smart, he dont need much supervision and probably need to show him the first time how to do it and send some documents for him to study. After complete his task given he would ask me to check it. He still had some shortcomings like the complaint of no projects given to him etc when he's the one who show me Serene's deliverables and quite impatient in wanting to do implementation to finish the work fast.
+Panch is better in business logic in seagate and the way he always keep thinking is that script needed but he give quite a lot of lectures but somehow if you are able to pick up what he says you might be able to solve some issues like pkg_process_admin.
+Shashi are quite good in technical skills and explaining things particularly airflow.
+In data, Tenzin most likely about had lots of knowledge in cycle time and even reporting stuff as in charge with applications as I saw his excel sheet is full of wip analytics column of needed information and that includes the FABGPT reports.
+The cloud team are more responsive now compare to last time when they are handling the lyve cloud. They are even starting to help out more in migration work with even testing with suspect of autovacumming issue.
+For my manager Chon Hui, I believe now is more focus on Data Science and GENAI stuff but you still care about knowing what I do. Thanks for that.
+
+Builds trust with colleagues.​
+Knows cross functional roles and responsibilities and effectively works across functions. ​
+Jointly develops solutions that benefit all functions and Seagate overall.​
+Contributes expertise to help team accomplish Seagate objectives.​
+Communicates effectively; ensures diversity of perspectives, asks for others’ input and actively listens to feedback.​
+Shows respect and gives recognition to others; supports them in their work.​ 
+Resolves conflicts constructively.
+
+Well, I had to learn quite some new things based on work demands to know what others are doing . Normaly I just pick and choose from udemy that is interesting and maybe ask GENAI for advice to get idea. There's too many focus on learning and can't apply all the skills taught. People are force to learn more than 40 hours just for the sake of learning. If required to learn some certain skills which manager see is still lacking like soft skills, its good. But for technical skills if just need to know what others are doing probably just the basic knowledge how it can be done should be good. Only if the person are suppose to develop into that new role need advance courses that is link to it as we cant learn all the skills.
+
+
+For Integrity, your commitment to transparency and accountability is evident. You’ve taken ownership of issues, even when they’re difficult to explain or resolve. For example, your decision to investigate the null issue thoroughly before making changes demonstrates a thoughtful and responsible approach.
+
+For Innovation, your willingness to explore new solutions, such as improving script performance with GENAI and adapting to PostgreSQL’s nuances, shows your ability to embrace change and seek improvements. Additionally, your proactive efforts to test scripts independently when resources were limited highlight your resourcefulness.
+
+Here’s a question to help you reflect further: Can you describe a specific instance where you successfully communicated a complex issue to your team, ensuring alignment and collaboration? What strategies did you use to overcome communication barriers?
+
+I try to learn the good methods from others but somehow still fall short because of my bad habits of just immediately to try to solve it out instead of plan and think to what to write and talk. I also adopt my manager's way of trying to present it using excel sheet and following others by writing in point form for more understanding and clarity, but it seems still better to just show the evidence in excel than trying to explain and going nowhere.
+
+
+It’s commendable that you’re actively working to improve your methods by learning from others and adopting practices like using Excel sheets and point forms for clarity. Recognizing areas for improvement, such as planning and thinking before acting, is a strong step toward personal and professional growth.
+
+To further enhance your communication and problem-solving skills, you might consider focusing on structuring your approach. For example, before diving into a solution, you could outline the problem, potential causes, and possible solutions in a systematic way. This could help you articulate your thoughts more clearly to your team and ensure alignment.
+
+Additionally, showing evidence in Excel, as you mentioned, is a great way to provide tangible data that supports your explanations. Pairing this with concise verbal or written summaries can make your communication even more effective
+
+1.1 Enhance Professional Growth and Learning. 
+1. Engage in learning opportunities, for example SAP SuccessFactors LMS, Udemy, conferences, and webinars, amongst other things, to accumulate learning hours of skill development.
+2. Apply newly acquired knowledge to contribute effectively within the team and share insights with colleagues.
+
+Final Feedback:  
+Complete 40 hours learning by attending Penang People Development and attend courses in Udemy that is useful in work.
+Able to apply some useful skills to work related. There's too many focus on learning and cant apply all the skills taught. 
+People are force to learn more than 40 hours just for the sake of learning. If required to learn some certain skills which manager see is still lacking like soft skills, its good.
+But for technical skills if just need to know what others are doing probably just the basic knowledge how it can be done should be good. 
+Only if the person are suppose to develop into that new role need advance courses that is link to it as we cant learn all the skills.
+
+1.2 Improve Factory Service Availability and Service Management Processes
+1. Work with factory teams to ensure all data requirements for IT services are met in an optimal manner.
+2. Support Plan/OCAP on all reporting apps.
+
+Final Feedback:  
+
+
+
+If got any issue with IAS Support Group, right now can only provide more details about the problem 
+For Slider AMKPIV data for SVTT, manage to resolve any problems related to it either through backfill data or fixing the script with some improvement made including performance to pull between range of time. Need to change any changes in kafka subscription. 
+For further improvement, need to separate the job for script to a new server to check if there's no new data coming in for some time and validate missing data and insert the missing entity to a newly created table and then the existing job just take the missing entity together with any existing entity and update them on entity. 
+Right now all is running in one job. If the existing job fail we wont even know there's error and then when found out need to backfill them.
+For Tableau, need to ask Ramesh for help as sometimes the job is not refresh and after Helen complain only then had look into it and resolve it and after he create a new job and then if need to need to fix the report from web, we cant just directly publish them to overwrite it otherwise the job wont do refresh and after some monitoring. It needs to first download it down to desktop and then refresh the whole data and then republish it.
+For FABGBT, had to test the usage of it and then write down the list of issues found and provide feedback to it- Had to do checking based on formulas provided, results it provides not up to expectations and wait for them to they fix it, had to recheck again until you are satisy.
+Task as mentor with Panch to guide the intern together. The intern are quite smart, he dont need much supervision and probably need to show him the first time how to do it and send some documents for him to study. After complete his task given he would ask me to check it.
+
+At least most of the issue is fixed in data support and operation is running smoothly. Maintenance disable jobs and enabled jobs and monitoring data and backfill done. Eg. Shipping lots in STST frequently missing and added some script to fix the breaking of script from complete running.
+We are doing support as a team based on availability in that particular timezone. 
+In some cases there are still some miscommunication between teams with different time zone as others might already working on it with the issue as humans we tend to still need people to respond only then we know they are doing it.
+There are times when all of us might overlook the email or chat and didnt respond to the email or have some fear in us when checking the complexity of the issue and had to evaluate whether it can be done or not before we make that attempt to do it and every time when having the confidence in doing it others also respond to it. That already waste some efforts in looking at it.
+For me, I always have this difficulty to explain it to the team or with others about the problem. Even when I write it in excel sheet or in point form just recently to explain it in more concise way about the problem faced that needs the attention, I always feel they cannot understand what I'm trying to convey.
+They are also times they understand what is done but that is only when I say I already provide the solution to that issue. Just take the future_actions issue, actually I can just try to immediately try to fix the data to make it similar to ods by updating or insert the old data first like how some of my discrepancy fix related to tbl_prod_matrix_dim because there's a few case where when I do that the discrepancy went away without changing the script and then running every script to detect difference if that still doesnt work. 
+This time I decide to do differently as if I change some script after debugging but then I would have miss the purpose of understanding why others write it this way. 
+After bringing up to the team, they say dont change anything before we can understand the issue of it become null. After like investigate it like nearly the whole day that the wip route changes it to null in oracle. I never once thought the update can act differently in postgres and oracle. 
+Originally, all script is written very similarly like in oracle to prevent issue but because of some performance issue in postgres, I of course like you guys seek advice from GENAI to improve the script performance and switch it like it and use the script and seen the performance improve and then ever since that time I use the format written in postgres and make nearly all the change in the sql including the pkg_lot_transaction. 
+Maybe because of that we start seeing issue now. Then after the modifications by Shashi, Tenzin ask me to learn from him how to modify the script. He constantly wanted to know the update on the fix and I had to keep explain the issues face and I was looking at it. Truth be told, I believe Tenzin is under pressure as well from the management thats why there's all the deadline thing and this can affect their performance review and because of that he also hurry me to get the result.
+I'm not sure what that implies if that is the case might as well dont brought it up but just fix it. I dont denied I had a lot to learn from Shashi with the way he explain things and he seems to better in doing this explanations and approaching people for help. He also knows better about airflow and dataframe technical skills.
+Panch is better in business logic in seagate and the way he always keep thinking is that script needed. Tenzin most likely about his knowledge in cycle time and in charge with applications. 
+
+1.3 System advancement for manufacturability of HAMR
+1. Deliver business requirements for reporting: Slider AMKPIV Tableau.
+2. RDM migration: Work on Wip Analytics STST, then Wip Analytics_NRM and then Eqp Analytics. Optimisation of ETL.
+3. Deliver key objectives on data integrity related projects.
+4. Deliver key data requirements that are key to the smooth manufacturability of HAMR.
+
+At first we write it like the way is determine like the previous team standard practices after discussion with data group like schema dars_owner _nrm/_stst for kafka migration tbl, oracle extensions for faster conversion in VM postgres. 
+I already write the document about that and I share it with the team. I admit I also plan already initially writing all those basic functionality like tbl_logs related with email, pkg_process_admin, pkg_partition_mgr, dynamic functions, null first, etc and already translated quite a lot script without first discussing with the team. 
+I gather all the list of script and jobs which I believe I can translate it fast together in edb postgres script just in case company decide to use it as its having a lot of similarity like oracle and then remove all the unuse columns as I test them. 
+I even had to write all the base table factory data using pyspark to pull data from the factory to test my script as I find it hard to wait for the cloud team to do it for me as they had other priorities at that time and most of the time very hard to get them do it immediately.
+That time there wasnt any GENAI to help with work so it's a really hard work.
+Then suddenly when Shashi and Tenzin come in to work with the data migration,  we are still doing using the scripts with all the extensions we need like email, pg_cron extension for postgres. After moving it to AWS, the extension need to reinstall again and I had to ask the cloud team to get it to the aws and and had to keep asking them and it take some time waiting for it. 
+I cannot wait already. After that I go and do some research on the extensions and discuss with the cloud team and try to get it inside AWS. Finally they install it in AWS with the schema oracle extension need to switch slightly to fix the script. 
+Then Tenzin suddenly suggest switching all script without oracle extensions and schema name as he doest feel sticking with vanilla postgres will be tedious in the beginning, but it will be better in the future for code readibility and maintenance/understading.
+At first I dont agree with that as modifying that would cause a lot of rework with testing of data and plus considering email still cant be done through AWS directly together with company policy prefering to use open source after some research. At the end I obey as the boss after some discussions with him after he encourage me to do it.
+Of course I got brought it up to Anshuman team and they will find some way to do it and I start to feel we cannot do it with postgres and thought of using something intermediatery like python script to do email and even thought of using iceberg as I feel its better using this for better performance.
+There's discussions with team but at the end we stick with postgres. 
+
+
+1.3 System advancement for manufacturability of HAMR
+1. Deliver business requirements for reporting: Slider AMKPIV Tableau.
+2. RDM migration: Work on Wip Analytics STST, then Wip Analytics_NRM and then Eqp Analytics. Optimisation of ETL.
+3. Deliver key objectives on data integrity related projects.
+4. Deliver key data requirements that are key to the smooth manufacturability of HAMR.
+
+Tableau Enhancements:
+Requests from Helen: You prioritized adding data sources, creating reports, and beautifying them with slider tools for SVTT AM KPIV, DLCC AM KPIV, and Data Quality. This demonstrates adaptability and responsiveness to stakeholder needs.
+Focus on Report Quality: Editing and beautifying reports ensures clarity and usability, which is crucial for decision-making.
+RDM Migration:
+Documentation and Planning: You documented tasks in Jira and planned work in Excel for pkg_lot_transactions, ensuring organized tracking of progress.
+Complexity in Migration: Transitioning from Oracle to Postgres posed challenges, especially with features like bulk collect not being available. You adapted by using cursors and optimizing queries after performance testing.
+Collaboration: Coordination with the cloud team was essential, especially when schema changes impacted data pulling in Kafka or PySpark. Using Notepad for find-and-replace tasks highlights your resourcefulness.
+Fixes and Optimizations: Examples include:
+Addressing missing shifts and backfilling data.
+Switching joins (e.g., left join to right join) for better performance.
+Optimizing scripts to remove duplicates and improve query efficiency.
+Adding missing columns and aggregating data for airflow jobs.
+Testing Development:
+Discrepancy Identification: You tested Shashi's script to identify discrepancies in WIP analytics, improving it with filters for numeric comparisons and enhancing visualization using Excel (e.g., red font for serious discrepancies, charts for top 20 issues).
+Intern Collaboration: You involved interns to assist with development and performance issue identification, fostering teamwork and skill development.
+Challenges:
+Discrepancy Resolution: Despite improvements, fully identifying discrepancies remained difficult, requiring further enhancements to scripts and processes.
+Performance Bottlenecks: Jobs like pkg_hist_metrics faced significant runtime issues, especially when additional functions were included. Partitioning and splitting jobs helped stabilize performance but required ongoing monitoring.
+Latest Discrepancies: Issues with columns like est_complete_hist_dt and est_complete_scale_dt were traced back to interval timing in job runs, highlighting the need for deeper analysis and potential changes in job scheduling.
+
+Final Feedback:  
+Tableau-
+Every time Helen had request. Try to add it for her if got time whether its adding data source or create report for her and try to edit and beautify the report for Slider tools, SVTT AM KPIV, DLCC AM KPIV, Data Quality.
+
+RDM Migration-
+Documentation of work with task to fix the issue in jira and planning of work in excel sheet for pkg_lot_transactions.
+At that time Tenzin start asking me to do pkg_lot_transaction and the pkg_hist_metrics which are much tougher for me as it involve a lot of complicated things like bulk collect which are not available in postgres.
+It first switches to used cursor and then after tested performance and ask for help in team. Fix in script to optimise query.
+We had to coordinate when working in a bigger team that involve the cloud team as well. The base data to pull schema in kafka or pyspark seems to be change again and notepad is used to find and replace. 
+Fixes made in RDM Migration: 
+eg. dars_owner.mv_wip_recipe,pkg_current_wip.TBL_MV_WIP_RECIPE_REFRESH_STG1_NRM or _stst, Dars_apps_owner.mv_curwip_wip_ct(So after identifying the issue with missing shift and it's backfilled by the cloud team and it should be good. changes from left join to right join after close monitoring.
+future action column step_seq_num is not matching with ods (Table is not getting updated with right step_seq_num. Fixed by comparing script in ods it seems added filter not null.)
+eg. pkg_current_wip - optimisation on pkg_current_wip( Merge switch to on conflict to remove duplicate for ) and some other change like substr and hrs_at_ops.
+,mv_wip_analytics Added missing columns (PREFERRED_PRIORITY, PREFERRED_PRIORITY_COMMENT, PREFERRED_PRIORITY_CONTACT) and aggregated to lot_id, tool_name, stage, step to fix the airflow job.
+Testing Development:
+Shashi had written just recently a script to compare the discrepancy in wip analytics. They ask me to test it out to identify the discrepancy. 
+Then he improve it to filter (postgre_num >= ods_num * 0.2) and (postgre_num <= ods_num * 1.8) for  numerics. Some enhancement further made using xlsx to highlight the discrepancy, red font is for more serious discrepancy
+and then chart to show top 20 and additional xlsx to show only red and more than 2.5 hours for datetime char. I also ask intern to help out with the development and identify the discrepancy and performance issue in wip analytics for pkg_hist_metrics.cum_lnr_wfl_yld after found it is needed.
+
+Challenges face 
+After some time, I found it still hard to fully identify the discrepancy using Shashi's script but as a start it can identify the lots with issue. so had to improve it. missing shift in cycle time table. performance bottleneck in job especially 
+eg. The pkg_hist_metrics job in airflow is stabilised without the pkg_hist_metrics.cum_lnr_wfl_yld(v_fac) which is needed for a column in a report called NPD WIP LIST. It runs around 10 min for nrm and 20 min for stst quite similar time like ods. If added the fnc would run more than 1 hour for both sites.
+As we check for discrepancy between mv_wip_analytics between oracle and postgres for just nrm, we managed to identify and solved nearly all the discrepancy and try to make it match. 
+The latest discrepancy related to columns - est_complete_hist_dt, est_complete_scale_dt which the root cause from job_hist_metrics which is related with interval time of job running.
+At this time, pkg_hist_metrics is still running badly with suspected because of two jobs clashing in using the tbl_hist_metrics even though its being partition and split running. Not sure the team wants how it being change yet. 
+
+At that time Tenzin start asking me to do pkg_lot_transaction and the pkg_hist_metrics which are much tougher for me as it involve a lot of complicated things like bulk collect which are not available in postgres.
+It first switches to used cursor and then after tested performance and ask for help in team. They are helpful in providing the solution but after tested it but it still doesnt work so I had to rewrite the part link to that as its very slow. For hist metrics and prc_forecast, there are lots of performance issue at that time with the script being optimised and index tested. 
+Every time there's discrepancy columns - est_complete_hist_dt, est_complete_scale_dt brought up had to look at prc_forecast and then hist metrics and every related objects to fix the issue. We managed fix that issue with sum of ct data formula to increase the numerics when pushing to cloud and even sum in sysdate between fac 
+and by running both running of jobs between postgres and oracle for pkg_hist_metrics.prc_ct.
+We had to coordinate when working in a bigger team that involve the cloud team as well. The base data to pull schema in kafka or pyspark seems to be change again. Every time its change like wdwdb_factory_stst, nrmwafp1  and then factory_nrm and then separate to wafer, I had to comply and switch all the scripts with notepad to use that schema to test the script. 
+
+The index of mv_info_recipe added CREATE UNIQUE INDEX mv_wip_recipe_nrm_lot_id_idx ON dars_owner.mv_wip_recipe_nrm USING btree (lot_id, tool_name, tool_child, recipe); for concurrent refresh
+Updating mv_info_recipe to get rid of distinct value and added unique index (stage, step, mach, mach_data, enabled, recipe, prod, wafer).
+reswitch in pkg_wip_recipe_tool.prc_process_all_lots  to use call pkg_current_wip.prc_process_all_lots_NRM() and stst(); - written previously along with pkg_current_wip and but still had to switch || to concat as || does not display if 1 value concatenated is null. Concat would join the columns even if 1 of the value is null. The old Dynamic sql pkg_wip_recipe_tool.prc_process_all_lots rename bk is hard to test the issue so separate it to two sites and use the new one in airflow for test run.
+pkg_current_wip.TBL_MV_WIP_RECIPE_REFRESH_STG1_NRM or _stst:
+change to STRING_AGG(DISTINCT to remove duplicate and substring 4000 for recipe as its over the char limit in pkg_wip_recipe.prc_mv_wip_recipe_refresh and then text format for recipe.
+Dars_apps_owner.mv_curwip_wip_ct: 
+Last time Shashi switch it to use from normal ct table without partition as it had issue with missing shift and after Tenzin ask me to look into it as that time Shashi went for vacation and we are a team if they have such request we had to coordinate with each other's work and there are performance issue. 
+I found that somehow it is affecting the performance in stst.
+So after identifying the issue with missing shift and it's backfilled by the cloud team and it should be good. Switch back to dars_owner.tbl_ct_step_by_shift_nrm and dars_owner.tbl_ct_step_by_shift_stst for past 90 days shifts. 
+dars_owner.tbl_ct_step_by_shift_stst is faster compared to wafer_owner_stst and like the cloud team said, "The wafer_owner_nrm and wafer_owner_stst tables are intermediate ETL tables from start and were intended for initial processing only".  
+and then left join to right join after close monitoring.
+future action column step_seq_num is not matching with ods:
+Table is not getting updated with right step_seq_num. Fixed by comparing script in ods it seems added filter not null.
+pkg_current_wip:
+Merge switch to on conflict to remove duplicate and some other change like substr and hrs_at_ops.
+mv_wip_analytics:
+Added missing columns (PREFERRED_PRIORITY, PREFERRED_PRIORITY_COMMENT, PREFERRED_PRIORITY_CONTACT)
+It is Switch to using lot_id, tool_name, tool_child, recipe columns unique index as it found exist  but then  it still have error. So now its aggregated to lot_id, tool_name, stage, step to fix the airflow job.
+
+1.1 Operational Excellence
+Ensure new and enhanced ETL process run consistently and reliably 
+
+Best practices in data engineering works which includes performance and exception handling
+
+100% commitment in ensuring data delivery to customers
+
+Regular weekly data support
+
+1.2 Communication and Collaboration
+Innovation
+It’s what we need to aspire to do everyday
+
+Integrity
+You are known for candor, authenticity, transparency, and being non-political
+You only say things about fellow employees that you say to their face
+You admit mistakes freely and openly
+You treat people with respect independent of their status or disagreement with you
+
+Inclusion
+You collaborate effectively with people of diverse backgrounds and cultures
+You nurture and embrace differing perspectives to make better decisions
+You are curious about how our different backgrounds affect us at work, rather than pretending they don’t affect us
+You recognize we all have biases, and work to grow past them
+You intervene if someone else is being marginalized
+
+1.3 Development and deployment
+Helping in development and deployment of Data Science projects
+
+Translating ODS jobs to pyspark.
+
+Assisting in development and deployment of Tableau projects
+
+Technical Excellence
+Not Started
+Goal Details
+Development Plan Title	Technical Excellence
+Category	Education (LinkedIn Learning / Seagate (SLP) Courses / Tuition Assistance)
+Competencies	
+Status	Not Started
+Development Plan/Activities	Improve technical skill in PLSQL, Cloud and machine learning
+
+Get familiarize and continuous to learn the process and technologies involved in Global Wafer Factory
+
+Complete at least 2 online course per quarter
+
+
+Regular
+
+Goal w=40
+Operational Excellence
+
+Description
+Ensure new and enhanced ETL process run consistently and reliably
+Best practices in data engineering works which includes performance and exception handling
+100% commitment in ensuring data delivery to customers
+Regular weekly data support
+
+Goal w=30
+People and Communication 
+
+Description
+Regular 1:1 with constructive feedback
+Cross-pollination among different sites's team members
+
+Development and deployment
+
+Helping in development and deployment of Data Science projects
+
+Translating ODS jobs to pyspark.
+
+Goal: Technical Excellence
+
+Description:  
+
+Improve technical skill in PLSQL and machine learning
+Get familiarize and continuous to learn all the process and technologies involved in Global Wafer Factory
+Complete at least 2 online course per quarter
+
+Stretch 
+Goal w=0
+Optimisation and Deployment
+Description
+Usage of non-AI methods/optimization techniques to increase factory efficiency
+Strategies to optimize re-training of ML/DL models or ETL process
+Deployment of Data Science projects
+
+
+Personal Skills Development
+Area of improvement
+
+Improve technical skills
+Software skills: Improve Python, Oracle, Postgress, Pyspark, hadoop and shell script, Tableau, Rancher, Kubernetes and CI/CD pipeline in gitlab  skills through company training, online courses and hands on.
+Workflow Process: Understand the ETL process through advice from experience colleagues and code dissection.
+
+Software skills: Improve Python, Oracle, Pyspark, hadoop and shell script skills through company training, online courses and hands on.
+Workflow Process: Understand the ETL process through advice from experience colleagues and code dissection.
+
+Software skills: Improve data science knowledge through company training, online courses, reading and hands on.
+
+Living Our Values
+Collaborate with the team in research of solution design.
+Provide guidance and support to the team when needed.
+
+
+1.1	Drive Our Strategy
+drive for business operational excellence by improving business processes through system enhancement and delivery within the planned timeframe
+
+Implement of projects within a specified timeframe
+- ETL migration to cloud	
+- Rancher Migration
+-Tableau development
+
+Implement ML and data engineering projects within a specified timeframe
+- Misalignment - OCR
+- ETL migration to cloud	
+  40%
+
+ 
+ 
+ 
+1.2	Lead Our Market
+Implement best in class and scalable solution for
+- Misalignment - OCR
+- ETL migration to cloud
+- Tableau development	
+  35%
+
+ 
+ 
+ 
+1.3	Living Our Values
+Innovative
+Inclusion
+- Collaborate effectively with people of diverse backgrounds and cultures
+- Embrace differing perspectives to make better decisions
+Integrity
+-Be transparency, and non-political
+- Admit mistakes freely and openly
+Treat people with respect regardless of their status or disagreement with you	
+  25%
+  
+Overview
+Thanking God for every work opportunities in Seagate and his grace for helping in finishing the task assigned in OCR/misalignment/ MDA 2.0/ Tableau/ ETL processexcept for the etl migration to cloud. Thanking every colleagues and the manager who have been helpful in assisting in work. 
+
+Data site
+Thanking God that whenever there are bugs involving etl, the problems are fixed and colleagues like Gerard, Thai Ming and Shashidhar are helpful in working together 
+to ensure that the etl process are smooth and data being backfill to the tables.
+Optimise quite a number of queries and consolidate some queries that is mainly requested by Danielle for Tableau reporting purposes. 
+Sucessfully Optimise JOB_XSITE_EQP_STST that has becomes slow and it trigger email notification and user unable to get current shift data. 
+Fixes the scrapmonitor query in stst using parallel query as it is running slower since 19c upgrade and help in displaying data for 
+their view is using SPR WLOS_OWNER.TBL_WIP_STATUS_ALL data.
+Fixes the etl process that breaks the process ranging from ORA-12899: value too large for column and ORA-06502: PL/SQL: numeric or value error.
+Look into users requests when they need something for eg. backfill data involving direct labor and even create documention for backfilling it.
+Help to look the emp_id in dars tables which might break as it is nearly hit 7 digits.
+Prepare documentions of all jobs to check which wlos jobs can be consolidated between both fac and to identify whether we still need the jobs.
+Though the migration from oracle to cloud seems to be delay as there are issues cloud resources shifted to lyve cloud concerning kafka and database suitability for etl. Personally, I think if want to
+migrate it at a much faster pace and more efficient we would need help from the vendors like EDB as they have experts for postgres that can act like a dba and have proven records of helping many companies to migate from oracle to their db
+and couple with our limited knowledge towards postgres, I think its better to get help and if possible using their edb postgresql 
+as it much compatible with oracle, provides replication (more availability and stable than conv postgres) and backup & data recovery and even support and even upgrade for us the db if used in their biganimal 
+and its not that expensive when compare to oracle as it is 80% cheaper as they stated and maybe some extra slight cost more expensive than conventional but its worth it with additional functionality. 
+and link it with the lyve cloud like what hitesh team are doing I think as they still depend on rds postgres in aws as they dont have the architecture yet for ods in lyve cloud..
+I had discussions with Gerard previously about it but I did give justification on it but after a while it seems to die down and 
+we just carry on doing some testing using some etl like current wip and etc in potgresql with just part of the data. 
+Though we manage to convert and consolidate some etl jobs, we had struggled to do it and soon the project is postponed as we need the full data to test it 
+and thanks Ajinkya for his help to try to get kafka working in pulling the data.
+Thanks Gerard for the knowledge transfer and his leadership and good luck to him as he embark his new journey in another place. 
+
+Rancher
+Thank God that all 41 ocr models are deploy to productions. Thanking Thai Ming for his dedication in trying to fix the models in OCR and misalignment
+and we sort of coordinate our work together in redeploying models that needs performance improvement in some categories when users disable the model
+which may be due to some change in detection the roi. Created notifications in oracle to inform us when misalignment/ocr models are failing - FAIL_NUM_PTS and FAIL#SRVC#CA
+Fix bugs when there are models that are failing. Enhancement of test script based on Tenzin's test script which allows faster testing of misalignment/ocr lots and prediction categories to debug errors. 
+Thank Tenzin, Belay and Steve for working together in sharing the best pratices in deployment the models.
+Though there are some issue with the design architecture and the system are not robust, thanks Tenzin, Clark, Belay, Thomas, Darren and Steve for solving the issue like RabbitMQ partition.
+Example is the security issue which involving tensorflow 1.8 shared by GFIT team, there are talks involving tensorflow 1.8 which had to switch to the latest version.
+Thank Vishal for providing the documention for TSF2 for testing purposes to check whether the migration to tsf2 is feasible.
+
+
+Tableau
+Thanking God for giving the opporturnity that I can still assist Danielle in some of her issues regarding data inconsistency in metrics_ptc query.
+and helping Danielle in optimising queries that is send by her. Help her to figure out another way in adding the fiscalweek and fiscalmonth for metrics_ptc based on range by adding it as filter columns. 
+Retrieve dynamic query for TABLE ( wlossite_owner.pkg_wafer_metrics_svc.fn_get_moves_per_mda. Though attempt to publish CT_data to tableau server not successful yet as it is too big to pull,
+there are some idea in using hyper api to publish data source to Tableau server might work. Thank Aniket for his documention that may be helpful to connect to Tableau through Trino.
+
+
+MDA 2.0
+Thanking God for Marcus and Mac for their patience in teaching me about MDA 2.0 .
+All the 14 toolsets are trained in MDA 2.0 and that the script for prediction are much faster. 
+Try to optimise the script but doesnt seems to improve much and even trying to optimise the accuracy using pycaret decision tree and try using different tuning
+as it allows readability of models but the model but it doesnt seems to improve either. Other base models may give higher accuracy but may not be in production. 
+It is hard to improve as the current models are good enough in production.
+All the oracle model training scripts are 
+are translated to trino and is much faster to train. All the single model prediction script connections to odsp1 are switch to WDWDB connections and it have less error and retry rate.
+Even if training in pycaret doesnt give a better performance, it helps in better understanding of multiple different algorithms used in predictions.
+Thank Chon Hui for giving the directions in creating the flowchart in lucid chart to explain the process of MDA 2.0.
+
+  
+
+Overview
+Data site
+Optimise quite a number of queries that is requested ranging from scrapmon query, AMKPIV summary, Equipments queries and etc. There are some optimisation skills I do learn a lot from Wai Kit and Gerard particularly the scrapmon queries like reducing the data by grouping and do not reuse the same code in every place. Most are tested to have improved performance but not all are successfully optimised particularly the queries that involved taking huge amount of data's.
+Try to ensure the ETL process to run consistently and reliably. If user pinpoints some error in data like data missing in Direct labor report, then the data will be backfilled to solve the problem. If the issue persist quite frequently, we will try to think of ways like writing some jobs to inform us first before user ask us again.
+or like some etl process breaks like unique constraint (NPL_REPORT_OWNER.PK_TBL_HGA_PARMS) violated results in error, bugs are being fixed by aggregate it and send for change request and get incident manager manager for approval. So, whether its data problems or some etl flow and cover up for other team members when they are not available for support.  There are also some certain issues which I didnt manage to solve properly like the recent case PKG_LOT_TRANSACTIONS.PRC_TXNS with that hit unique constraint 
+and Gerard sort of solve by just updating the MAX_VALS_LOOK_UP of TBL_LOT_TRANSACTIONS instead of aggregating. Thanks for Gerard and Panch for their guidance and discussions to get the current_wip running in stfwp3.
+Thanks for Thai Ming like getting the columns across tables together for the DWR needed by Affi and many other advice and guidance in the data site.
+Thanks to Thai Ming and Helen for giving some idea like how to push the csv file to hive. Helen has another approach like using gitlab library darsconnect to connect to presto for insertion of data.
+Thanks to Renuka for the knowledge transfer for APF CT, KPIV and KPOV. Thanks Shashi for briefly teaching about the SPC.
+Assess the suitability of edb advance postgresql, posgresql or some new format tables like iceberg, hudi, delta(allows streaming etl) and its usability for the migration of etl to the cloud which requires update, merge, delete which cannot be used in pyspark hive. We sort like test posgresql to see whether how much time we need to take to rewrite the etl as posgresql have limited functionality like cursor, bulk insert, collect, dbmsql and etc unlike oracle who had those functionality.
+Discuss with the edb staffs, vendors to find out what can they offer us in terms of their expertise, costs and tools and even try out some of their free tools like edb migration portal tools to assess the oracle compatibilty with some packages like pkg_calendar_tableau, current_wip, pkg_partition_mgr and etc while at the same time writing and testing the biggest limitations that is in postgresql see whether it fit our requirements.
+Exploring some extra extensions like orafce for oracle compatibility, pg_cron for job schedular, pg_curl for mailing purpose and etc in postgresql to test our etl in postgresql.
+Advanced edb has 95% oracle compatibility with oracle like way of written for tables data types, sequence, type, cursors, packages, bulk insert, UTL_SMTP and etc. 
+It may costs more like paying around 1200 usd per core per annum but it is 80% cheaper compare to oracle costs and migrating the etl to edb would definitely be a lot faster with support, training and much higher compatibility.
+ 
+Rancher
+Thanks to Tenzin and Clark for giving some talks, discussions in using the CICD pipeline replacing a more manual way in deploying the misalignment model.
+Thanks to Clark for giving some advice in helping to get the OCR to deploy in Rancher. All 41 stages are deployed and 5 stages deployed as OCR: R470, REC2, R071, R073, R080.  Thanks to Thai Ming and Vishal for help in debugging the issue together particularly the mismatch predictions between ADC and Rancher that we are able to solve it together by finding some necessary code that is different between ADC and Rancher and change it respectively.
+Thanks for their patience in teaching about how the images are being classified and many more advices and guidance like scripts written to determine the images that its predictions value that is not matching the original value that is pull from ADC system for much easier way.
+When deploying error occurs like protobuf error resulting from google changing something in protobuf, we try to find solution from the internet and install --no-binary protobuf to solve it and including some good approaches like add the list of img needed in request message and to and even code Refactoring for OCR script. 
+Thanks for Belay for some training in using darshiny cluster particularly the testing, push images to NGINX server and etc. He even create a documention for solve some common problems like if there are high or fatal errors in eventshub related to GWS image image project, we can fix it like StatusCode.RESOURCE_EXHAUSTED by increasing the memory in tsf pods and etc.
+There are certainly big issues that happen recently in Rancher which I admit I didnt do a good job with that. Big thanks to Thomas, Belay, Tenzin and etc for helping to solve the issues. 
+
+
+Tableau
+Thanks to Dong Mei as well for giving us some training in using Tableau. We sort of like work together to get the EQP and paretos data to be publish to tableau. Dong Mei did a great job in consolidating the EQP_JobsInProgress for drilldown purpose.
+Convert shiny DFDC governance dashboard to Tableau and modify it based on the user requirements after some discussions with Qiao. Try to convert overlay endpoint but unsuccessful as it is slow because of its big amount of data pull for just 2 months. 
+Develop a dynamic package to allow Tableau to pick the range periods for better performance in smaller period live. Have weekly session with Moira to help her to adapt in using Tableau and gather requirements she need in reporting like getting static lot, io paths and etc.
+Gerard helped by giving some advice on getting the static lots particularly looking through the APF cycle time and then getting it through [CT_PROCESS_INTRANSIT]+[CT_LOAD].
+Help Danielle to record the time taken in loading Tableau reports in Penang site and even compile the list of problems face in Tableau desktop or web.
+Help to validate and solve some of the common problems which the users face in tableau web or desktop.
+Help to publish custom query to Tableau web. Thanks to Chon Hui for her advices and guidance like doing some recording of video for usage in color and drilldown for Tableau web and even for the overall work across Seagate.
+
+Develop dashboard for slider SVTT and DLC
+Help Danielle with her requests in optimising queries send by her with the team
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Purpose
+Oracle ETL may break and our team need to maintain it. There may be new request of proc/pkg for development of application like TIBCO for loading it to tables to replace TIBCO event management. 
+Our team continue to evolve and more task that is non related to just data is added like deployment of models, support in Tableau and even doing data scientist task.
+Ensuring new and enhanced ETL process run consistently and reliably and even as support for non-related data task  so that customers can implement their respective task needed for company growth. Build trust and collaboration with different teams  and  drive band awareness.
+Support customers in their task implementation for company growth. Build trust and collaboration with different teams  and  drive band awareness.
+
+alignment check
+SYMPHONY AI TEAM, Engineering team, Data Scientist team, DBA, cloud admin team, Tableau Admin team, PC team, IT team
+
+obj-Complete migration of GTX dashboard to Tableau or similar solutions within 3 years, complete migration of oracle etl to cloud within 5 years. All these are for cost effective  and quality leads.
+
+why now
+-Change of goals and target in company for ensuring company growth
+- Must be flexible and adaptable to change that we' can all grow to be a better person
+-Different teams can start working more closely together and not doing/ handling things independently in team.
+
+Key Result
+Migration of GTX dashboard to Tableau or similar solutions within 3 years.
+Complete migration of oracle etl to cloud within 5 years.
+Create an end to end open source MLOps for data scientist within 2 years.
